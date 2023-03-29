@@ -15,7 +15,8 @@ import Search from "../assets/SVG/Search.svg";
 import React from "react";
 import { ScrollView } from "react-native";
 import { useFonts } from "expo-font";
-import { TailwindProvider } from "tailwindcss-react-native";
+import MapView from "react-native-maps";
+import { Marker } from "react-native-maps";
 
 const ExploreScreen = () => {
   const navigation = useNavigation();
@@ -30,6 +31,9 @@ const ExploreScreen = () => {
   }
 
   const screenHeight = Dimensions.get("window").height;
+
+  // when press on search icon it should go to search screen and search for the place
+  // when press on any of the images it should go to the place details screen
 
   return (
     <SafeAreaView style={[styles.container, { height: screenHeight }]}>
@@ -49,24 +53,21 @@ const ExploreScreen = () => {
             </Text>
             {/* here */}
           </View>
-          <View className="">
-            <View className="bg-gray-800 rounded-xl w-full h-96 mt-4">
-              <Image
-                source={require("../assets/images/map.png")}
-                style={{ width: "100%", height: "100%", borderRadius: 12 }}
-              />
-              <View className="absolute top-2 right-2">
-                <TouchableOpacity>
-                  <View
-                    className="relative rounded-lg w-8 h-8 backdrop-blur-lg flex items-center justify-center"
-                    style={{ backgroundColor: "rgba(247, 200, 76, 0.2)" }}
-                  >
-                    <View className="opacity-100 mt-1">
-                      <Search />
-                    </View>
+          <View className="rounded-xl w-full h-96 mt-4">
+            {/* map here */}
+            {/* set initial region to India gate and show traffic */}
+            <MapView style={{ flex: 1 }} initialRegion={{ latitude: 28.6129, longitude: 77.2295, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }} showsTraffic={true}/>
+            <View className="absolute top-2 right-2">
+              <TouchableOpacity>
+                <View
+                  className="relative rounded-lg w-8 h-8 backdrop-blur-lg flex items-center justify-center"
+                  style={{ backgroundColor: "rgba(247, 200, 76, 0.8)" }}
+                >
+                  <View className="opacity-100 mt-1">
+                    <Search />
                   </View>
-                </TouchableOpacity>
-              </View>
+                </View>
+              </TouchableOpacity>
             </View>
           </View>
           <View
@@ -109,13 +110,13 @@ const ExploreScreen = () => {
                       }}
                     />
                     <View className="absolute top-2 left-2">
-                    <Text
-                      className="text-white text-xl"
-                      style={{ fontFamily: "Barlow_bold" }}
-                    >
-                      Recommened Places
-                    </Text>
-                  </View>
+                      <Text
+                        className="text-white text-xl"
+                        style={{ fontFamily: "Barlow_bold" }}
+                      >
+                        Recommened Places
+                      </Text>
+                    </View>
                   </View>
                 </View>
                 <View
@@ -209,6 +210,11 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight,
     backgroundColor: "#0e1219",
   },
+  map: {
+    flex: 1,
+    userInterfaceStyle: "dark",
+  },
+
 });
 
 export default ExploreScreen;

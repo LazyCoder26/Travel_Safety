@@ -32,7 +32,7 @@ const NewsCard = () => {
     <>
     {/* add todays headline text */}
       
-      {news.slice(0, 10).map((article, index) => (
+      {news.slice(0, 30).map((article, index) => (
         <TouchableOpacity key={index} onPress={() => handlePress(article.url)}>
           <View className="w-full flex-row my-2">
             <View className="mr-4">
