@@ -8,6 +8,8 @@ import SignInScreen from "./screens/SignInScreen";
 import SignUpScreen from "./screens/SignUpScreen";
 import ExploreScreen from "./screens/ExploreScreen";
 import WeatherScreen from "./screens/WeatherScreen";
+import TranslateScreen from "./screens/TranslateScreen";
+import MapScreen from "./screens/MapScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +37,8 @@ export default function App() {
         <Stack.Screen name="Emergency" component={EmergencyScreen} />
         <Stack.Screen name="Explore" component={ExploreScreen} />
         <Stack.Screen name="Weather" component={WeatherScreen} />
+        <Stack.Screen name="Translate" component={TranslateScreen} />
+        <Stack.Screen name="Map" component={MapScreen} />
         </Stack.Navigator>
       </TailwindProvider>
     </NavigationContainer>

@@ -6,8 +6,6 @@ import {
     StatusBar,
     Dimensions,
     TouchableOpacity,
-    TextInput,
-    KeyboardAvoidingView,
     ScrollView,
   } from "react-native";
 import React from 'react'
@@ -144,8 +142,8 @@ const WeatherScreen = () => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      marginTop: StatusBar.currentHeight,
       backgroundColor: "#0e1219",
+      paddingTop: StatusBar.currentHeight,
     }
 })
 

@@ -17,9 +17,13 @@ import { ScrollView } from "react-native";
 import { useFonts } from "expo-font";
 import MapView from "react-native-maps";
 import { Marker } from "react-native-maps";
+import Map from "../screens/MapScreen";
 
 const ExploreScreen = () => {
   const navigation = useNavigation();
+  const naigateMap = () => {
+    navigation.navigate("Map");
+  };
 
   const [fontsLoaded] = useFonts({
     Barlow_medium: require("../assets/Fonts/Barlow-Medium.ttf"),
@@ -58,7 +62,7 @@ const ExploreScreen = () => {
             {/* set initial region to India gate and show traffic */}
             <MapView style={{ flex: 1 }} initialRegion={{ latitude: 28.6129, longitude: 77.2295, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }} showsTraffic={true}/>
             <View className="absolute top-2 right-2">
-              <TouchableOpacity>
+              <TouchableOpacity onPress={naigateMap}>
                 <View
                   className="relative rounded-lg w-8 h-8 backdrop-blur-lg flex items-center justify-center"
                   style={{ backgroundColor: "rgba(247, 200, 76, 0.8)" }}
@@ -207,8 +211,8 @@ const ExploreScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight,
     backgroundColor: "#0e1219",
+    // marginTop: StatusBar.currentHeight,
   },
   map: {
     flex: 1,
