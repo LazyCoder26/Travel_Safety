@@ -18,7 +18,7 @@ import Back_Icon from "../assets/SVG/Back_Icon.svg";
 import Swap_Icon from "../assets/SVG/Swap_Icon.svg";
 import { useNavigation } from "@react-navigation/native";
 
-const App = () => {
+const TranslateScreen = () => {
   const navigation = useNavigation();
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
@@ -160,4 +160,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default TranslateScreen;

@@ -55,24 +55,26 @@ const MapScreen = () => {
 
   return (
     <SafeAreaView style={[styles.container, { height: screenHeight }]}>
+      <View className="flex justify-between items-center flex-row p-2 bg-black">
       {/* insert back icon svg over mapview in top left corner */}
       <Back_Icon
         style={{
-          position: "absolute",
-          top: 20,
-          left: 20,
+          // position: "absolute",
+          // top: 20,
+          // left: 20,
           zIndex: 1,
+          borderRadius: 10,
         }}
         onPress={() => navigation.goBack()}
       />
       {/* insert search bar over mapview in top right corner */}
       <TextInput
         style={{
-          position: "absolute",
-          top: 45,
-          right: 9,
-          zIndex: 1,
-          width: 200,
+          // position: "absolute",
+          // top: 45,
+          // right: 9,
+          zIndex: 2,
+          width: "60%",
           height: 40,
           backgroundColor: "#fff",
           borderRadius: 10,
@@ -83,6 +85,7 @@ const MapScreen = () => {
         onChangeText={(text) => setAddress(text)}
         onSubmitEditing={handlePress}
       />
+      </View>
       {/* insert mapview */}
       <MapView
         ref={mapViewRef}
